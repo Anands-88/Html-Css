@@ -1,0 +1,223 @@
+<!DOCTYPE html> <!-- Document type html, to understand which html it is, its html5 -->
+
+<head> <!-- Not visible to user-->
+    <style> /* Used to define css in html file, other wise link tag needed */
+        body{ /* body of the page, whatever defined here applies to whole body */
+            height: 100vh; /* viewport height, using this can bring object in middle, 100 means 100% */
+            width: 100vw; /* viewport width*/
+            position:fixed; /* position of the element(object) */
+            background-color: rgba(0, 0, 0, 0.795); /* back ground color the page */
+        }
+
+        .galaxy{
+            height:100%;
+            width:100%;
+        }
+
+        .sun{  /* class sun, applies all defined in sun class */ 
+            border-radius: 50%; /* radius of sun, means circling the sun */
+            border: 2px solid rgb(247, 177, 27); /* border color*/
+            width: 100px; /* width of element*/
+            height: 100px; /* height of the element*/
+            background-color: rgb(238, 120, 10); /* background color of sun, color of SUN */
+            position: absolute; /* sun position, can try with relative,sticky, fixed, static*/
+            top: calc(50% - 126px/2); /* from top: 275px, top: calc(50% - 45px);*/
+            left: calc(50% - 126px/2);/*  from left 300px,top: calc(50% - 40px);*/
+            animation: sun-circle-animation 0.15s infinite; /* animating sun by rotating, name, speed, duration, time of start */
+        }
+
+        @keyframes sun-circle-animation { /* keyframes rule spicifies the animation code*/
+            from {
+                transform: rotate(0deg); /* transform from 0 degree*/           
+            }
+            to{
+                transform: rotate(360deg); /* to 360 degree*/
+            }
+        }
+
+         .mercury{
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(136, 138, 138);
+            position: fixed;
+            top: calc(50% - 40px/2);
+            left: calc(50% - 40px/2);
+            animation: mercury1 0.8s linear infinite; /* 1s, more the time less the spped*/
+        }
+
+        @keyframes mercury1 {
+            from{
+                transform: rotate(0) translateX(80px); /* translate X means X Axis, help to rotate around the object(SUN)*/
+            }
+            to{  /* from translate x axis to  x axis, on round, inifinite times*/ 
+                transform: rotate(360deg) translateX(80px); 
+            }
+        }
+
+         .venus{
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(226, 178, 21);
+            position: absolute;
+            top: calc(50% - 60px/2);
+            left: calc(50% - 65px/2);
+            animation: venus2 1.5s linear infinite;
+        }
+
+        @keyframes venus2 {
+            from{
+                transform: rotate(0) translateY(115px);
+            }
+            to{
+                transform: rotate(360deg) translateY(115px);
+            }
+        }
+
+        .earth{
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: rgb(44, 146, 241);
+            position: absolute;
+            top: calc(50% - 60px/2);
+            left: calc(50% - 65px/2);
+            animation: earth3 2s linear infinite;
+        }
+
+        @keyframes earth3 {
+            from{
+                transform: rotate(0) translateX(160px);
+            }
+            to{
+                transform: rotate(360deg) translateX(160px);
+            }
+        }
+
+        .mars{
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            background-color: rgb(196, 47, 36);
+            position: absolute;
+            top: calc(50% - 55px/2);
+            left: calc(50% - 50px/2);
+            animation: mars4 2.5s linear infinite;
+        }
+
+        @keyframes mars4 {
+            from{
+                transform: rotate(0) translateY(200px);
+            }
+            to{
+                transform: rotate(360deg) translateY(200px);
+            }
+        }
+
+        .jupiter{
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            background-color: rgb(201, 20, 126);
+            position: absolute;
+            top: calc(50% - 80px/2);
+            left: calc(50% - 80px/2);
+            animation: jupiter5 3.5s linear infinite;
+        }
+
+        @keyframes jupiter5 {
+            from{
+                transform: rotate(0) translateX(270px);
+            }
+            to{
+                transform: rotate(360deg) translateX(270px);
+            }
+        }
+
+        .saturn{
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            background-color: rgb(112, 83, 64);
+            position: absolute;
+            top: calc(50% - 65px/2);
+            left: calc(50% - 65px/2);
+            animation: saturn6 4s linear infinite;
+        }
+
+        @keyframes saturn6 {
+            from{
+                transform: rotate(0) translateY(350px);
+            }
+            to{
+                transform: rotate(360deg) translateY(350px);
+            }
+        }
+
+        .ring{
+            height:100px;
+            width:8px;
+            border: 8px solid rgb(218, 216, 136);
+            border-right: 2px double rgb(112, 83, 64);
+            top: -21px;
+            left: 30px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .uranus{
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(44, 235, 219);
+            position: absolute;
+            top: calc(50% - 50px/2);
+            left: calc(50% - 50px/2);
+            animation: uranus7 4.3s linear infinite;
+        }
+
+        @keyframes uranus7 {
+            from{
+                transform: rotate(0) translateX(420px);
+            }
+            to{
+                transform: rotate(360deg) translateX(420px);
+            }
+        }
+
+        .neptune {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            top: calc(50% - 50px/2);
+            left: calc(50% - 50px);
+            animation: neptune8 4.5s linear infinite;
+        }
+
+        @keyframes neptune8 {
+            from{
+                transform: rotate(0) translateY(485px);
+            }
+            to{
+                transform: rotate(360deg) translateY(485px);
+            }
+        } 
+
+    </style>
+</head>
+<body>
+    <img  class= "galaxy" src="https://images.newscientist.com/wp-content/uploads/2020/05/22112120/sagdig_opo0431b_web.jpg">
+    <div class="planet sun"></div>
+    <div class="planet mercury"></div>
+    <div class="planet venus"></div>
+    <div class="planet earth"></div>
+    <div class="planet mars"></div>
+    <div class="planet jupiter"></div>
+    <div class="planet saturn" > <span class="ring"></span> </div>
+    <div class="planet uranus"></div>
+    <div class="planet neptune"></div>
+
+</body>
+</html>
