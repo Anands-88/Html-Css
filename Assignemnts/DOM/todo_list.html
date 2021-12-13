@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width:46%;
+            border: 1px solid red;
+            margin: auto;
+        }
+
+        table{
+            margin-top: 10px;
+            border: 1px solid black;
+            background: rgb(248, 167, 61);
+            text-align: center;
+        }
+
+        th,td{
+            border: 1px solid blue;
+            background: rgb(219, 213, 206);
+            width: 25%;
+        }
+
+        form{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id = "myform">
+        <label >S.no.</label>
+        <input type="number" placeholder="S.no" id="number">
+        <label >Todo List</label>
+        <input type="text" placeholder ="Type your todo List" id="list">
+        <label >Date</label>
+        <input type="date" id="date">
+        <select id="priority">
+            <option value="">"-"</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <button>Submit</button> 
+        <!-- For form use input submit -->
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>S.no.</th>
+                <th>List</th>
+                <th>Date</th>
+                <th>Priority</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+</html>
+<script>
+    document.getElementById("myform").addEventListener("submit",additem)
+    var tablebody = document.createElement("tbody")
+
+    function additem(event)
+    {   event.preventDefault()
+        var number = document.querySelector("#number").value
+        var list = document.querySelector("#list").value
+        var date = document.querySelector("#date").value
+        var priority = document.querySelector("#priority").value
+        
+        var trow = document.createElement("tr")
+        var tdata1 = document.createElement("td")
+        var tdata2 = document.createElement("td")
+        var tdata3 = document.createElement("td")
+        var tdata4 = document.createElement("td")
+        var tdata5 = document.createElement("td")
+        
+        tdata1.textContent = number
+        tdata2.textContent = list
+        tdata3.textContent = date
+        tdata4.textContent = priority
+        tdata5.textContent = "Delete";
+
+        
+        if (priority == "Low")
+        {
+            tdata4.style.backgroundColor = "yellow";
+        }
+        else if(priority == "Medium")
+        {
+            tdata4.style.backgroundColor = "orange";
+        }
+        else if(priority == "High")
+        {
+            tdata4.style.backgroundColor = "red";
+        }
+
+        tdata5.addEventListener("click",deletelist)
+
+        trow.append(tdata1,tdata2,tdata3,tdata4,tdata5)
+        tablebody.append(trow)
+        var table = document.querySelector("table").append(tablebody)
+    }
+
+    function deletelist(event)
+    {
+        event.target.parentNode.remove() // To delete the data using target and parentNode
+    }
+    console.log(document.querySelector("body"))
+    </script>

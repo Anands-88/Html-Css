@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product list</title>
+    <style>
+
+
+        .product_Box{
+            display: flex;
+            flex-wrap: wrap;
+            font-family: sans;
+            background-color: rgb(219, 255, 243);
+        }
+
+        .product_Box > div{
+            border:groove;
+            width:22%;
+            height:190px;
+            margin: 2% 1% 0%;
+            padding-bottom: 5%;
+            font-size: 14px;
+            border-radius: 8px;
+            background-color: rgb(158, 158, 226);
+        }
+
+        img{
+            border:1px solid rgb(228, 224, 224);
+            width:100%;
+            height:70%;
+            background-color: white;
+        }
+
+        .product_Box > div > div{
+            margin-top: 3%;
+            padding-left: 5%;
+            width:97%;
+            height:23%;
+            text-align: start;
+        }
+        
+        h4{
+            width:40%;
+            height:10%;
+            padding:1% 0% 0% 5%;
+            color:rgb(82, 21, 77);
+            margin-top: -2%;
+            margin-bottom: 5%;
+        }
+
+        h4::before{
+            content:"₹";
+        }
+
+        h4::after{
+            content: ".00";
+        }
+
+        .button{
+            background: rgb(240, 117, 47);
+            color:rgb(255, 255, 255);
+            margin-left: 30%;
+            border-radius: 5px;
+        }
+
+        .first{
+            text-align: right;
+            margin-right: 10px;
+            background: rgb(236, 125, 84);
+            border-radius: 5px;
+        }
+
+        span{
+            font-family: sans;
+            margin-right: 10px;
+        }
+
+        #gotoCart{
+            background:rgb(165, 226, 236);
+            border:groove;
+        }
+    </style>
+</head>
+<body>
+    <div class = "first">
+        <select name="selection" id="byPrice" onchange="sortIt()">
+            <option value="">Sort by Price</option>
+            <option value="low">Low to High</option>
+            <option value="high">High to Low</option>
+        </select>
+        <select name="" id="byName">
+            <option value="">Sort by Name</option>
+            <option value="a"> A-Z</option>
+            <option value="z">Z-A</option>
+        </select>
+        <span>Go to Cart</span>
+        <button id = "gotoCart">Go to Cart</button>
+    </div>
+    <div class = "product_Box"></div>
+</body>
+</html>
+<script>
+
+    var products = JSON.parse(localStorage.getItem("products"))|| [];
+
+    var cartdetails = JSON.parse(localStorage.getItem("userCart"))|| [];
+    displayProducts(products)
+
+    function displayProducts(products){
+        document.querySelector(".product_Box").innerHTML = "";
+        for (var item = 0; item < products.length; item++)
+        {   
+            
+            var item_box = document.createElement("div")
+
+            var image = document.createElement("img")
+            image.setAttribute("src",products[item].image)
+
+            var pr_name = document.createElement("div")
+            pr_name.textContent = products[item].name;
+
+            var price = document.createElement("h4")
+            price.textContent = products[item].price;
+            price.setAttribute("class","price")
+
+            var cart = document.createElement("button")
+            cart.textContent = "Add to Cart";
+            cart.setAttribute("class","button")
+
+            cart.addEventListener("click",addToCart);
+
+            item_box.append(image,pr_name,price,cart)
+            document.querySelector(".product_Box").append(item_box)
+        }
+
+    }
+    
+    
+    function addToCart()
+    {
+        var obj = {name:event.target.parentNode.querySelector("div").textContent,
+                image:event.target.parentNode.querySelector("img").getAttribute("src"),
+                price:event.target.parentNode.querySelector("h4").textContent
+            } 
+        
+        cartdetails.push(obj)
+
+        localStorage.setItem("userCart",JSON.stringify(cartdetails))
+    }
+
+    document.querySelector("#gotoCart").addEventListener("click",function()
+    {
+        window.location.href = "cart.html";
+    })
+
+    function sortIt(){
+        selectedprice = document.querySelector("#byPrice").value;
+        products.sort(function(a,b){
+            if(selectedprice == "low")
+            {
+                return Number(a.price) - Number(b.price)
+            }
+            else if(selectedprice == "high")
+            {
+                return Number(b.price) - Number(a.price)
+            }
+        })
+        displayProducts(products)
+        
+        selectedname = document.querySelector("#byName").value;
+        products.sort(function(a,b){
+            if(selectedname == "a")
+            {
+                if(a.name > b.name)
+                    return 1
+                if(a.name < b.name)
+                    return -1
+            }
+            else if(selectedname == "z")
+            {
+                if(b.name > a.name)
+                    return 1
+                if(b.name < a.name)
+                    return -1
+            }
+        })
+
+        displayProducts(products)
+        
+    }
+</script>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width:50%;
+            border: 1px solid red;
+            margin: auto;
+        }
+
+        table{
+            margin: 10px auto;
+            border: 1px solid black;
+            background: rgb(248, 167, 61);
+            text-align: center;
+        }
+
+        th,td{
+            border: 1px solid blue;
+            background: rgb(219, 213, 206);
+            width: 25%;
+        }
+
+        form{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id = "myform">
+        <label>Fields</label>
+        <input type="text" placeholder ="Items" id="list">
+        <label>Quantity</label>
+        <input type="number" placeholder="Quantity" id="number">
+        <button>Submit</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Click to Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>
+<script>
+    document.getElementById("myform").addEventListener("submit",additem);
+    var array = JSON.parse(localStorage.getItem("todoList"))|| []; // if null in the local storage
+    display(array)
+
+    function additem(event){
+        event.preventDefault()
+        var item = document.querySelector("#list").value;
+        var qty = document.querySelector("#number").value;
+
+        var obj = {
+            objitem:item,
+            objqty:qty,
+        }
+        array.push(obj);
+
+        var tolocal = JSON.stringify(array);
+        localStorage.setItem("todoList",tolocal);
+        
+        document.querySelector("#list").value = ""; // To clear the entered details after the submit.
+        document.querySelector("#number").value = "";
+
+        display(array);
+      } 
+
+      function display(array)
+      { 
+        document.querySelector("tbody").innerHTML = "";
+        array.map(function (elem,index){
+
+            var trow = document.createElement("tr");
+            var tdata1 = document.createElement("td");
+            tdata1.textContent = elem.objitem;
+            var tdata2 = document.createElement("td");
+            tdata2.textContent = elem.objqty;
+            var tdata3 = document.createElement("td")
+            tdata3.textContent = "Delete";
+
+            tdata3.addEventListener("click",function ()
+            {
+                event.target.parentNode.style.color = "red"
+                event.target.parentNode.remove()
+                array.splice(index,1) // Remove the item in local storage and as well in screen
+                localStorage.setItem("todoList",JSON.stringify(array))
+            })
+
+            trow.append(tdata1,tdata2,tdata3)
+            document.querySelector('tbody').append(trow)
+        })     
+      }
+</script>

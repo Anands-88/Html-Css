@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pin{
+            border:ridge;
+            border-radius:25px;
+            width:40%;
+            height:450px;
+            margin:auto;
+            background-color:rgb(247, 195, 128);
+        }
+        h2{
+            margin:4% 0% 0% 15%;
+            color:navy;
+        }
+
+        #payment{
+            display: grid;
+            grid-template-rows: repeat(3,40px);
+            grid-template-columns:300px;
+            grid-row-gap: 40%;
+            justify-content:center;
+            margin-top: 30px;
+        }
+
+        #payment > input{
+            border: 2px solid slateblue;
+            border-radius: 10px;
+        }
+
+        #payment > div{
+            display: flex;
+        }
+
+        #payment > div > input{
+            border: 2px solid slateblue;
+            border-radius: 10px;
+            width:40%;
+            height:100%;
+        }
+        #expiry{
+            margin-right: 15px;
+            flex-grow: 2;
+        }
+
+        #click{
+            height:30px;
+            width:50%;
+            margin: auto;
+            font-weight: bolder;
+            background-color: rgb(219, 211, 219);
+        }
+    </style>
+</head>
+<body>
+    <div id = "pin">
+        <h2>Enter Your Card Details</h2>
+        <form id = "payment">
+            <input type="text" placeholder="* Name on card" id = "name">
+            <input type="text" placeholder="* Enter card number" id = "card">
+            <div>
+                <input type="month" placeholder="* expiry Date" id = "expiry">
+                <input type="text" placeholder="* CVV" id = "cvv">
+            </div>
+            <input type="submit" id="click">
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    alert("Enter All * Fields")
+    document.querySelector("#payment").addEventListener("submit",details)
+    
+    function details(event)
+    {
+        event.preventDefault()
+
+        if (payment.name.value == "" && payment.card.value == "" && 
+            payment.expiry.value == "" && payment.cvv.value == "" )
+            {
+                alert("Enter All * Fields")
+            }
+        else if(payment.card.value.length != 16)
+        {
+            alert("Enter 16 Digit Card Number")
+        }
+        else if(payment.cvv.value.length != 3)
+        {
+            alert("Enter Correct CVV")
+        }
+        else{
+                window.location.href = "otp.html"
+                alert("OTP sent to your RMN")
+        }
+    }
+
+</script>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            font-family: sans;
+        }
+        #addbox{
+            width:25%;
+            height:450px;
+            margin-left: 2%;
+        }
+
+        #addbox > div{
+            border-bottom: 1px solid rgb(204, 202, 202);
+            height:50px;
+        }
+
+        #display{
+            width:50%;
+            margin-left: 10%;
+        }
+
+        th,td{
+            text-align: start;
+            height: 40px;
+            border-top: 1px solid rgb(220, 220, 224);
+            width: 5%;
+        }
+        td{
+            color: rgb(71, 70, 70);
+        }
+
+        form{
+            margin-top: 10px;
+            display: block;
+        }
+
+        #myform > div{
+            margin: 13px 0px 5px;
+            color: rgb(37, 37, 37);
+        }
+
+        h2{
+            color: rgb(70, 118, 141);
+        }
+
+        select, input,textarea{
+            background-color:white;
+            width: 98%;
+            height: 27px;
+            border-radius: 4px;
+        }
+
+        textarea
+        {
+            height:80px;
+        }
+
+        button{
+            border: 2px solid rgb(176, 219, 243);
+            width:24%;
+            height:33px;
+            background:rgb(36, 93, 179);
+            color: white;
+            font-weight: bolder;
+            border-radius: 4px;
+        }
+
+        
+
+
+        
+    </style>
+</head>
+<body>
+    <div id = "addbox">
+        <div>
+            <h2>Add Product</h2>
+        </div>
+        <form id = "myform">
+            <div>Category</div>
+            <select id="category">
+                <option></option>
+                <option value="Electronics">Electronics</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Home appliance,">Home appliance,</option>
+                <option value="Books">Books</option>
+            </select>
+    
+            <div>Title</div>
+            <input type="text" placeholder ="Title" id="title">
+    
+            <div>Description</div>
+            <textarea name="Description" id="description" cols="26" rows="5"></textarea>
+    
+            <div>Price</div>
+            <input type="number" name="price" id="price">
+    
+            <div>
+                <button>Add</button>
+            </div>
+        </form>
+    </div>
+    
+    <div id = "display">
+        <h2>Product Info</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
+<script>
+    document.getElementById("myform").addEventListener("submit",additem);
+    var array = JSON.parse(localStorage.getItem("bozazproduct"))|| []; // if null in the local storage
+    displayitems(array)
+    var number = 0;
+    function additem(event){
+        number++;
+        event.preventDefault()
+        var ctgry = document.querySelector("#category").value;
+        var ttl = document.querySelector("#title").value;
+        var desc = document.querySelector("#description").value;
+        var prc = document.querySelector("#price").value;
+
+        var obj = {
+            num:number,
+            category:ctgry,
+            title:ttl,
+            description:desc,
+            price:prc
+        }
+        array.push(obj);
+
+        localStorage.setItem("bozazproduct",JSON.stringify(array)); // To LOcal Storage
+
+        displayitems(array);
+      } 
+
+      function displayitems(array)
+      { 
+        document.querySelector("tbody").innerHTML = "";
+        array.map(function (elem){
+            
+            var trow = document.createElement("tr");
+
+            var s_no = document.createElement("td")
+            s_no.textContent = elem.num;
+            var tdata1 = document.createElement("td");
+            tdata1.textContent = elem.category;
+            var tdata2 = document.createElement("td");
+            tdata2.textContent = elem.title;
+            var tdata3 = document.createElement("td");
+            tdata3.textContent = elem.description;
+            var tdata4 = document.createElement("td")
+            tdata4.textContent = elem.price;
+
+            trow.append(s_no,tdata1,tdata2,tdata3,tdata4)
+            document.querySelector('tbody').append(trow)
+        })     
+      }
+</script>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Price</title>
+    <style>
+
+        #bigbox{
+            display: grid;
+            grid-template-rows: 200px 330px;
+            grid-template-columns:800px;
+            grid-row-gap: 15px;
+            justify-content: center;
+            
+        }
+
+        #head{
+            width:63%;
+            margin-left: 19%;
+            margin-top: 20px;
+            
+        }
+        
+        #head > span{
+            font-size: 170%;
+            font-family: sans;
+            font-weight: bolder;
+            line-height:40px;
+            padding-left:8%;
+        }
+
+        #head > span:nth-child(2){
+            padding-left:30%;
+            
+        }
+
+        #head > div{
+            width:100%;
+            height:90px;
+            padding-top: 20px;
+            color:rgb(53, 53, 53);
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        #head > div > span:last-child{
+            padding-left:26%;
+            line-height: 30px;
+        }
+
+        #content{
+            display: grid;
+            grid-template-columns:repeat(3,270px);
+            grid-column-gap: 25px;
+            font-family: sans;
+            text-align: center;
+        }
+
+        .free{
+            font-size: 30px;
+            font-weight: 800;
+            color:rgb(85, 170, 85); 
+        }
+
+        #content span{
+            font-size:14px;
+        }
+
+        #content > div > div:nth-child(4){
+            width:90%;
+            height: 100px;
+            margin-top: 35px;
+            font-size: 15px;
+            padding-left: 15px;
+        }
+
+        button{
+            width:60%;
+            border:2px solid blue;
+            color:rgb(10, 42, 133);
+            padding:15px 0px 15px 0px;
+            font-size: 20px;
+            border-radius: 8px;
+        }
+        
+        button:hover{
+            color:white;
+            background: rgb(7, 105, 185);
+        }
+
+        #content > div > .price{
+            font-size: 30px;
+            font-weight: 800;
+            text-align: center;
+            color:rgb(226, 106, 8); 
+        }
+
+        #content > div > .price2{
+            font-size: 30px;
+            font-weight: 800;
+            text-align: center;
+            color:rgb(7, 136, 211); 
+        }
+
+        @media screen and (min-width:376px) and (max-width:768px)
+        {
+            #content{
+                grid-template-columns:repeat(2,270px);
+                margin: auto;
+                grid-row-gap: 35px;
+            }
+        }
+        
+        @media only screen and (max-width:375px)
+        {
+            #content{
+                grid-template-columns:repeat(1,270px);
+                margin: auto;
+                grid-row-gap: 35px;
+            }
+
+            #head > span{
+                padding-left: 15%;
+            }
+
+            #head > div > span:first-child{
+                padding-left: 15%;
+            }
+
+            #head > div > span:last-child{
+                padding-left: 0%;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id ="bigbox">
+        <div id = "head">
+            <span>Choose a plan that right for</span>
+            <span>your business</span>
+            <div>
+                <span>We collect reviews from our users so you 
+                    can get an honest opinion of what an
+                </span>
+                <span>experience with our websites are really like!</span>
+            </div>
+        </div>
+
+        <div id = "content">
+            <div>
+                <h3> Starter Plan</h3>
+                <div class = "free">Free</div>
+                <span><i>Per month</i></span>
+
+                <div>We collect reviews from our
+                    users so you can get an honest 
+                    opinion of what an experience
+                       with our website.
+                </div>
+                <button>Start Now</button>
+            </div>
+
+            <div>
+                <h3> Business Plan</h3>
+                <div class = "price">$39.00</div>
+                <span><i>Per month</i></span>
+
+                <div>We collect reviews from our
+                    users so you can get an honest 
+                    opinion of what an experience
+                       with our website.
+                </div>
+                <button>Start Now</button>
+            </div>
+
+            <div>
+                <h3> Premium Plan</h3>
+                <div class = "price2">$59.00</div>
+                <span><i>Per month</i></span>
+
+                <div>We collect reviews from our
+                     users so you can get an honest 
+                     opinion of what an experience
+                        with our website.
+                </div>
+                <button>Start Now</button>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

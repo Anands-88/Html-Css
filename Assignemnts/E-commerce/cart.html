@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+
+        body{
+            display: flex;
+            background-image: url(data:image/jpeg;base64,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);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        #cart{
+            width:55%;
+        }
+        .itemBox{
+            font-family: sans;
+            width:99%;
+            height:180px;
+            display: flex;
+            margin-top: 1%;
+            border: 1px dotted rgb(226, 185, 212);
+        }
+
+        .itemBox > div:first-child{ /* imagebox */
+            width:35%;
+            height:100%;
+        }
+
+        img{
+            background:white;
+            width:100%;
+            height:100%;
+        }
+        .itemBox > div:last-child{
+            background: rgb(250, 241, 226);
+            width:65%;
+            height:99%;
+        }
+
+        .itemBox > div > div{
+            padding: 10% 0% 0% 5%;
+            font-weight: bold;
+        }
+
+        h4::before{
+            content: "₹";
+            text-align: center;
+            width:30%;
+            margin:10% 0% 0% 10%;
+        }
+        
+        #total{
+            margin-left: 10%;
+            width:23%;
+            height:410px;
+            display:grid;
+            grid-template-rows:repeat(5,60px);
+            grid-template-columns: 70% 30%;
+        }
+
+        #total > div{
+            border-radius: 5px;
+            border:groove;
+            font-size: larger;
+            font-weight: bolder;
+            padding: 10%;
+            box-sizing: border-box;
+        }
+        #total > div:nth-child(8) ~ div{
+            border:none;
+        }
+
+        #total > div:nth-child(12) ~ div
+        {
+            color:rgb(44, 42, 42);
+            font-size: 10px;
+            text-align: center;
+            padding:2%;
+            border:ridge;
+            border-radius: 10px;
+            background:rgb(255, 234, 117);
+        }
+        input{
+            margin-top: 5%;
+            border:inset rgb(201, 201, 201);
+            border-radius: 5px;
+            width:80%
+        }
+        
+        button{
+            border-radius: 5px;
+            background:peru;
+            margin-top:30%;
+        }
+
+        .remove{  /* remove */
+            margin: 5% 0% 0% 10%;
+        }
+
+        #total > div:nth-child(2n){
+            text-align: center;
+        }
+
+        #totalprice::before{
+            content: "₹";
+        }
+
+        #discount::before{
+            content: "₹";
+        }
+
+        #amount::before{
+            content: "₹";
+        }
+
+        .products{
+            margin:10% 0% 5% 0%;
+            font-weight: bolder;
+            border: ridge;
+            background:rgb(150, 144, 189);
+        }
+
+        .products > button{
+            margin:0% 0% 0% 10px;
+            height:20px
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div id = "cart">
+        <span class = "products">Go to Product Page
+            <button>Here</button>
+        </span>
+    </div>
+    <div id = "total">
+        <div> No. of Products</div>
+        <div></div>
+        <div>Total price</div>
+        <div id = "totalprice"></div>
+        <div>Discount</div>
+        <div id = "discount"></div>
+        <div>Amount to Pay</div>
+        <div id = "amount"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div>Have a coupon code?!
+            <div>Apply here</div> 
+             <input type="text" id = "coupon"></div>
+        <div>
+            <button id = "promo">Apply Promo</button>
+        </div>
+        <button id = "success">Check Out</button>
+    </div>
+</body>
+</html>
+<script>
+    var cartInfo = JSON.parse(localStorage.getItem("userCart")) || [];
+    var count = 0;
+
+    cartInfo.map(function(elem,index){
+
+        var item_box = document.createElement("div")
+        item_box.setAttribute("class","itemBox")
+
+        var image_box = document.createElement("div")
+        var image = document.createElement("img")
+        image.setAttribute("src",cartInfo[index].image)
+
+        var contents = document.createElement("div")
+        var pr_name = document.createElement("div")
+        pr_name.textContent = cartInfo[index].name;
+
+        var price = document.createElement("h4")
+        price.textContent = cartInfo[index].price;
+        price.setAttribute("class","price")
+
+        var remove = document.createElement("button")
+        remove.textContent = "Remove";
+        remove.setAttribute("class","remove")
+
+        image_box.append(image)
+        contents.append(pr_name,price,remove)
+        item_box.append(image_box,contents)
+        document.querySelector("#cart").append(item_box)
+
+        document.querySelector("#total > div:nth-child(2)").textContent = cartInfo.length
+        count = count + Number(elem.price);
+        document.querySelector("#totalprice").textContent = count
+
+        document.getElementsByClassName("remove")[index].addEventListener("click",function ()
+        {
+            event.target.parentNode.parentNode.remove()
+            cartInfo.splice(index,1) // Remove the item in local storage and as well in screen
+
+            document.querySelector("#total > div:nth-child(2)").textContent = cartInfo.length;
+            localStorage.setItem("userCart",JSON.stringify(cartInfo))
+            count = count - Number(elem.price);
+            document.querySelector("#totalprice").textContent = count;
+
+            couponcheck()
+            
+        })
+    })
+
+    document.querySelector("#promo").addEventListener("click",couponcheck)
+
+    function couponcheck()
+    {
+        if (document.querySelector("#coupon").value == "masai30")
+        {
+            alert("congratulation! coupon 30% OFFER added")
+
+            document.querySelector("#coupon").value = "";
+
+            var discount = document.querySelector("#totalprice").textContent * 30/100;       
+            document.querySelector("#discount").textContent = Math.floor(discount);
+            document.querySelector("#amount").textContent = document.querySelector("#totalprice").textContent - Math.floor(discount);
+        }
+        else if(document.querySelector("#coupon").value.length > 0)
+        {
+            alert("Entered wrong coupon, Try again!.")
+            
+        } 
+    }  
+        
+    document.querySelector(".products > button").addEventListener("click",function(){
+        window.location.href = "product.html"
+    })
+
+    document.querySelector("#success").addEventListener("click",function(){
+        window.location.href = "success.html"
+    })
+</script>

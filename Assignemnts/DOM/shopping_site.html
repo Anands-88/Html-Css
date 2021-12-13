@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shooping site</title>
+
+    <style>
+        #bigbox{
+            width:55%;
+            height: 190px;
+            display: flex;
+            justify-content: space-between;
+            margin:13% 15%;
+        }
+
+        #bigbox > div{
+            width:23%;
+            height: 98%;
+            font-family: sans;
+            border:1px solid rgb(223, 224, 222);
+        }
+
+        img{
+            width:137px;
+        }
+
+        #bigbox > div > div{
+            width:99%;
+            height: 25%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #bigbox > div > div > p{
+            color: rgb(63, 62, 62);
+            padding-left: 10px;
+            font-size: 8px;
+        }
+
+        #bigbox > div > div > h4{
+            margin-top: auto;
+            padding-left: 10px;
+            font-size: 12px;
+        }
+
+        #bigbox > div > div > div{
+            color: rgb(100, 98, 98);
+            font-size: 10px;
+            margin-left:10px;
+            text-decoration: line-through;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var bigbox = document.createElement("div");
+    bigbox.setAttribute("id","bigbox")
+
+    var boxdata = [
+        {
+            img:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+            title :"LATEST MEN'S SNEAKER",
+            price:"$25.00",
+            cut:"$35.00"
+        },
+
+        {
+            img:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+            title :"LATEST MEN'S SNEAKER",
+            price:"$25.00",
+            cut:"$35.00"
+        },
+
+        {
+            img:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+            title :"LATEST MEN'S SNEAKER",
+            price:"$25.00",
+            cut:"$35.00"
+        },
+
+        {
+            img:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+            title :"LATEST MEN'S SNEAKER",
+            price:"$25.00",
+            cut:"$35.00"
+        }
+    ]
+
+    boxdata.map(function(elem){
+
+        var inside = document.createElement("div");
+        var image = document.createElement("img");
+        image.setAttribute("src",elem.img)
+
+        var content_box = document.createElement("div")
+        var ptag = document.createElement("p")
+        var heading4 = document.createElement("h4");
+        var price_cut = document.createElement("div")
+
+        ptag.append(elem.title)
+        heading4.append(elem.price)
+        price_cut.append(elem.cut)
+
+        content_box.append(ptag, heading4,price_cut)
+        inside.append(image,content_box)
+        bigbox.append(inside);
+        document.querySelector("body").append(bigbox);
+    })
+//Above is shortcut method, below is orginal method
+
+    // var firstbox = document.createElement("div");
+    // var sec_box = document.createElement("div");
+    // var third_box = document.createElement("div");
+    // var fourth_box = document.createElement("div");
+
+    // var image_1 = document.createElement("img");
+    // var image_2 = document.createElement("img");
+    // var image_3 = document.createElement("img");
+    // var image_4 = document.createElement("img");
+
+    // var content1 = document.createElement("div")
+    // var content2 = document.createElement("div")
+    // var content3 = document.createElement("div")
+    // var content4 = document.createElement("div")
+
+    // var title1 = document.createElement("p")
+    // var title2 = document.createElement("p")
+    // var title3 = document.createElement("p")
+    // var title4 = document.createElement("p")
+
+    // var heading1 = document.createElement("h4");
+    // var heading2 = document.createElement("h4");
+    // var heading3 = document.createElement("h4");
+    // var heading4 = document.createElement("h4");
+
+    // var price_cut1 = document.createElement("div");
+    // var price_cut2 = document.createElement("div");
+    // var price_cut3 = document.createElement("div");
+    // var price_cut4 = document.createElement("div");
+
+
+    // bigbox.setAttribute("id","bigbox")
+    // ,image_1.setAttribute("src","https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp");
+    // image_2.setAttribute("src","https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp");
+    // image_3.setAttribute("src","https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp");
+    // image_4.setAttribute("src","https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp");
+
+
+    // title1.textContent = "LATEST MEN'S SNEAKER";
+    // title2.textContent = "LATEST MEN'S SNEAKER"
+    // title3.textContent = "LATEST MEN'S SNEAKER"
+    // title4.textContent = "LATEST MEN'S SNEAKER"
+
+    // heading1.textContent = "$25.00";
+    // heading2.textContent = "$25.00";
+    // heading3.textContent = "$25.00";
+    // heading4.textContent = "$25.00";
+
+    // price_cut1.textContent = "$35.00";
+    // price_cut2.textContent = "$35.00";
+    // price_cut3.textContent = "$35.00";
+    // price_cut4.textContent = "$35.00";
+
+    // content1.append(title1,heading1,price_cut1)
+    // content2.append(title2,heading2,price_cut2)
+    // content3.append(title3,heading3,price_cut3)
+    // content4.append(title4,heading4,price_cut4)
+
+    // firstbox.append(image_1,content1)
+    // sec_box.append(image_2,content2)
+    // third_box.append(image_3,content3)
+    // fourth_box.append(image_4,content4)
+
+    // bigbox.append(firstbox,sec_box,third_box,fourth_box);
+    
+    // document.querySelector("body").append(bigbox);
+
+</script>

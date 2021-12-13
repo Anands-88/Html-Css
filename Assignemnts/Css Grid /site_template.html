@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Site</title>
+    <style>
+        .boxes{
+            display:grid;
+            grid-template-rows: 70px 400px;
+            grid-template-columns: 200px 500px;
+            grid-column-gap: 30px;
+            grid-row-gap: 30px;
+            margin:5% 0px 0px 25%;
+        }
+
+        .boxes > div{
+            border-radius: 6px;
+        }
+        
+        .firstbox{
+            grid-area: 1/1/2/3;
+            background: rgb(233, 22, 22);  
+        }
+
+        .firstbox + div{
+            background:rgb(8, 206, 8);
+        }
+
+        .boxes > div + div + div{
+            background:rgb(0, 121, 91);
+        }
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div class = "firstbox"></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <select id="gender">
+        <option value="">select a gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+
+    <button onclick="age_validate()">Submit</button>
+</body>
+</html>
+<script>
+
+    function age_validate(){
+        var year = document.querySelector("input").value;
+        var gender = document.getElementById("gender").value;
+        
+        var age = 2021 - year;
+
+        if (gender == "male" && age >= 21 || gender == "female" && age >= 18)
+        {
+            alert("Valid legal age to marry")
+        }
+        else
+        {
+            alert("Not valid legal age to marry")
+        }
+    }
+</script>
+
+
+<!-- Create a file called marraiage_age_validator.html
+It should take the gender (dropdown) and year of birth as input and show an alert 
+if the user is of the valid legal age to get married or not -->

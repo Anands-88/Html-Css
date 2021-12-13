@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Zig Zag</title>
+    <style>
+
+        .container{
+            display:flex;
+            padding:0% 5% 0% 5%;
+        }
+
+        .container > div{
+            background-color: teal;
+            height: 150px;
+            width: 20%;
+            margin: 15px;;
+            border-radius: 10px;
+        }
+        
+        .expand{
+            flex-grow: 1;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div></div>
+        <div class = "expand"></div>
+        <div></div>
+    </div>
+    <div class="container">
+        <div class = "expand"></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="container">
+        <div></div>
+        <div></div>
+        <div class = "expand"></div>
+    </div>
+</body>
+</html>

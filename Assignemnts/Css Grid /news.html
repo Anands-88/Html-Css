@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>News Grid</title>
+    <style>
+        .box{
+            display:grid;
+            grid-template-columns: repeat(3,350px);
+            grid-template-rows:repeat(1,280px);
+            grid-gap: 20px;
+            margin:100px
+        }
+
+        .box > div{
+            border:1px solid black;
+        }
+
+        img+h4{
+            width:100%;
+            height:14%;
+            margin-top: 5px;
+            padding-left: 5px;
+            font-family: sans;
+            font-size: 13px;
+        }
+
+        hr{
+            margin-top: -18px;
+            width:36%;
+            margin-left:0px;
+        }
+    
+        h4 ~ div{
+            width:70%;
+            height: 12%;
+            padding-left: 5px;
+            font-size: 13px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class = "box">
+        <div>
+            <img src="https://via.placeholder.com/348x190">
+            <h4>
+                This Is What's Going To Happen In 2021 - 
+                Nostradomus Predicted It Centuries Ago
+            </h4>
+            <hr>
+            <div>Crafthought | Sponsored</div>
+        </div>
+        <div>
+            <img src="https://via.placeholder.com/348x190">
+            <h4>
+              Prices of Unsold New Cars In Vishakhapatnam Could
+              Greatly Surprise You
+            </h4>
+            <hr>
+            <div>Unsold Cars | Search ads | Sponsored</div>
+        </div>
+        <div>
+            <img src="https://via.placeholder.com/348x190">
+            <h4>
+               Apartment for Sale Prices in Vishakhapatnam Might Surprice You
+            </h4>
+            <hr>
+            <div>Apartment for sale | Search ads | Sponsored</div>
+        </div>
+    </div>
+    
+</body>
+</html>

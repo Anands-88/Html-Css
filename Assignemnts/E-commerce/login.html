@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            background-image: url(https://st.depositphotos.com/2236871/3816/v/600/depositphotos_38164861-stock-illustration-minimal-login-form-design.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 520px;
+        }
+
+        .loginBox{
+            width:33%;
+            height:300px;
+            margin:219px auto 0% auto;
+            font-family: sans;    
+        }
+
+        .loginBox > div{
+            padding: 20px 0px 6px 0px;
+            font-size: 12px;
+            margin-left: 1%;
+            font-weight: bolder;
+            color:darkred;
+        }
+        .loginBox > input{
+            margin-left: 1%;
+            width:96%;
+            height:10%;
+            border-radius: 3px;
+        }
+        #pwd{
+            margin-top: 5px;
+        }
+
+        button{
+            margin:13% 0% 0% 1%;
+            height:12%;
+            width:98%;
+            font-weight: bolder;
+            border-radius: 5px;
+            background:rgb(197, 194, 194);
+        }
+
+        .loginBox > div+button{
+            margin-top:0px
+        }
+
+    </style>
+</head>
+<body>   
+    <div class = "loginBox">
+        <input type="text" id = "email" placeholder="Enter the Email Address">
+        <input type="text" id = "pwd" placeholder="Enter the Password">
+
+        <button onclick="login()">Log In</button>
+
+        <div>New User?</div>
+        <button onclick="signup()">Sign Up</button>
+    </div>
+</body>
+</html>
+<script>
+    var details = JSON.parse(localStorage.getItem("signup"))
+    
+    function login()
+    {
+        var email = document.querySelector("#email").value
+        var pssword = document.querySelector("#pwd").value
+        var message = 0;
+        for (var item = 0; item < details.length;item++)
+        {
+            if (details[item].email == email && details[item].password == pssword)  // If entered is matching or not.
+            { 
+                message = 1;
+                alert("Login Successful")
+                window.location.href = "product.html"
+                break;
+            }
+        }
+
+        if (message === 0)
+        {
+            alert("Entered email number or password wrong, Try again!")
+        }
+
+    }
+
+    function signup()
+    {
+        window.location.href = "sign_up.html"
+    }
+</script>

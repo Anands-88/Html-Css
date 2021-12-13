@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:460px;
+            height:220px;
+            border: 1px solid rgb(209, 204, 204);
+            display: flex;
+            margin:auto;
+            border-radius: 3px;
+        }
+
+        #insidebox{
+            border: transparent;
+            width:47%;
+            margin-left:4%;
+            display: block;
+            font-family: sans;
+        }
+
+        p{
+            font-size: 15px;
+            line-height: 22px;
+            color:rgb(49, 48, 48);
+            font-family:fantasy
+        }
+
+        button{
+            height: 32px;
+            border-radius: 4px;
+            color: white;
+            background-color: rgb(54, 141, 241);
+
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var firstdiv = document.createElement("div");
+    var image = document.createElement("img");
+    var seconddiv = document.createElement('div');
+    var head4 = document.createElement("h4");
+    var paragraph = document.createElement("p");
+    var button = document.createElement("button");
+    
+    image.setAttribute("src","https://via.placeholder.com/220x220")
+    seconddiv.setAttribute("id",'insidebox')
+
+    head4.textContent = "Alice Liddel"
+    paragraph.textContent = "Alice is a freelance web designer and developer based in London. She is specilized in HTML5, CSS3, Javascript, Bootstrap, etc."
+    button.textContent = "View Profile"               
+
+    firstdiv.append(image,seconddiv)
+    seconddiv.append(head4,paragraph,button)
+    document.querySelector("body").append(firstdiv)
+
+</script>

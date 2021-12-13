@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grid News</title>
+    <style>
+        #newsBox{
+            display: grid;
+            grid-template: repeat(1,450px) / 50% 35%;
+            margin:6% 0% 0% 15%;
+            font-family: sans;
+            
+        }
+
+        .firstbox{
+            display:grid;
+            grid-template: 60% 40% / 90%;
+        }
+
+        .secondbox{
+            display:grid;
+            grid-gap: 10px 0px;
+            grid-template: repeat(3,1fr) / 45% 61%;  
+        }
+
+        #newsBox > div > div > span:first-child{
+            color:rgb(207, 15, 15);
+            font-size:13px;
+            font-weight: bolder;
+            padding-left:1%;
+        }
+
+        .firstbox > div > div{
+            font-size:23px;
+            font-weight: bolder;
+            padding:2% 0% 2% 1%
+        }
+
+        #newsBox > div > div > span:last-child{
+            font-size:14px;
+            padding-left:1%;
+        }
+
+        .secondbox > div > div{
+            font-size:14px;
+            font-weight: bolder;
+            padding:2% 0% 5% 1%
+        }
+
+    </style>
+</head>
+<body>
+   <div id = "newsBox">
+       <div class = "firstbox">
+            <div>
+                <img src="https://via.placeholder.com/556x260">
+            </div>
+            <div>
+                <span>Technology</span>
+                <div>The world's first fitness influencer was a Victorian strongman</div>
+                <span>by Pete Sariya</span>
+            </div>
+       </div>
+
+       <div class = "secondbox">
+           <div>
+            <img src="https://via.placeholder.com/170x137">
+           </div>
+           <div>
+                <span>Technology</span>
+                <div>
+                    Needs to Rename the James Webb Space Telescope
+                </div>
+                <span>by Pete Sariya</span>
+           </div>
+
+           <div>
+                <img src="https://via.placeholder.com/170x137">
+           </div>
+           <div>
+                <span>Technology</span>
+                <div>These striking photos capture the future of human flight</div>
+                <span>by Pete Sariya</span>
+           </div>
+
+           <div>
+                <img src="https://via.placeholder.com/170x137">
+           </div>
+           <div>
+                <span>Technology</span>
+                <div>Exploring the origins of punk across America with Kid Karate</div>
+                <span>by Pete Sariya</span>
+           </div>
+       </div>
+       
+    </div> 
+</body>
+</html>

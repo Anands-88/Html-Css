@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        #addbox{
+            width:30%;
+            height:450px;
+            margin-left: 2%;
+            font-family: sans;
+            background: rgb(211, 162, 208);
+            border-radius: 5%;   
+        }
+
+        #addbox > div{
+            border-bottom: 1px solid rgb(204, 202, 202);
+            height:40px;
+            margin-bottom: 20px;   
+        }
+        form{
+            margin:14%;
+        }
+
+        h2{
+            margin:0% 0% 0% 20%;
+            padding-top: 2%;
+        }
+
+        #myform > div{ 
+            margin: 13px 0px 5px;
+        }
+
+
+        input{
+            background-color:white;
+            width: 220px;
+            height: 27px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        div > input{
+            border: 2px solid rgb(176, 219, 243);
+            width:35%;
+            height:33px;
+            background:rgb(36, 93, 179);
+            color: white;
+            font-weight: bolder;
+            border-radius: 4px;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div id = "addbox">
+        <div>
+            <h2>Add Product</h2>
+        </div>
+        <form id = "myform">
+    
+            <div>Product Name</div>
+            <input type="text" placeholder ="Enter the Product Name" id="product_name">
+
+            <div>Price</div>
+            <input type="number" placeholder ="Enter price"id="price">
+    
+            <div>Add Image</div>
+            <input type="text" placeholder="Enter Image URL" id="image">
+
+            <div>
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
+<script>
+    document.getElementById("myform").addEventListener("submit",additems);
+    var array = JSON.parse(localStorage.getItem("products"))|| [];
+
+    function additems(event){
+        event.preventDefault()
+
+        var p_name = document.querySelector("#product_name").value;
+        var prc = document.querySelector("#price").value;
+        var img = document.querySelector("#image").value;
+
+        var obj = {
+            name:p_name,
+            price:prc,
+            image:img
+        }
+        array.push(obj);
+
+        localStorage.setItem("products",JSON.stringify(array)); 
+
+        document.querySelector("#product_name").value = "";
+        document.querySelector("#price").value = "";
+        document.querySelector("#image").value = "";
+        
+      }
+
+</script>
